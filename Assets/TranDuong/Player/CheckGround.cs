@@ -9,6 +9,7 @@ public class CheckGround : MonoBehaviour
     [SerializeField] private LayerMask _layerMask;
     [SerializeField] private float _radius;
     [SerializeField] private UnityEvent _onHitGround;
+    [SerializeField] private Transform _groundCheckTransform;
 
 
     private bool _isGround { get; set; }
@@ -21,18 +22,19 @@ public class CheckGround : MonoBehaviour
 
     public void IsGrounded()
     {
-        _isGround = Physics2D.OverlapCircle(transform.position, _radius, _layerMask);
+        _isGround = Physics2D.OverlapCircle(_groundCheckTransform.position, _radius, _layerMask);
         if (_isGround && _lastState == false)
         {
-                _onHitGround.Invoke();
+            _onHitGround.Invoke();
         }
         _lastState= _isGround;
     }
 
-    private void OnDrawGizmosSelected()
+    private void OnDrawGizmos()
     {
-        Gizmos.color = _isGround ? Color.green : Color.red;
-        Gizmos.DrawSphere(transform.position, _radius);
-
+    
+            Gizmos.color = _isGround ? Color.green : Color.red;
+            Gizmos.DrawSphere(_groundCheckTransform.position, _radius);
+        
     }
 }

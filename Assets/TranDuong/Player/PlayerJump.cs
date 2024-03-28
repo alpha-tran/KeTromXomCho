@@ -10,7 +10,7 @@ public class PlayerJump : MonoBehaviour
     [SerializeField] private InputActionReference _jumpAction;
     [SerializeField] private CheckGround check;
     [SerializeField] private float _maxJumpCount;
-
+    private float _prevYPosition;
 
     private float _lastJump = 0;
     private Rigidbody2D _rb;
@@ -26,6 +26,16 @@ public class PlayerJump : MonoBehaviour
     void  Update()
     {
         InputUpdateJump();
+        if(_prevYPosition > transform.position.y)
+        {
+            // rot xuong -> bat ground check
+            check.enabled = true;
+        }
+        else
+        {
+            // nhay len -> tat ground check
+            check.enabled = false;
+        }
     }
     public void OnHitGround() => _lastJump = _maxJumpCount;
     private void InputUpdateJump()
