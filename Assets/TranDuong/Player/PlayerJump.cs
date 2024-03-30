@@ -1,53 +1,84 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class PlayerJump : MonoBehaviour
 {
-    [SerializeField] private float _jumpForce;
+    [Header("Input")]
     [SerializeField] private InputActionReference _jumpAction;
-    [SerializeField] private CheckGround check;
+    [Space(10)]
+
+    [Header("Jumps")]
+    [SerializeField] private float _jumpForce;
     [SerializeField] private float _maxJumpCount;
-    private float _prevYPosition;
+    private float _lastJump;
+    [Space(10)]
 
-    private float _lastJump = 0;
+    [Header("CheckGround")]
+    [SerializeField] private LayerMask _layerMask;
+    [SerializeField] private float _radius;
+    [SerializeField] private Transform _groundCheckTransform;
+
+    
+
     private Rigidbody2D _rb;
+    public bool _isGround { get; set; }
+    public bool _isJumping { get; set; }
 
-    // Start is called before the first frame update
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
         _lastJump = _maxJumpCount;
+        _isJumping = false;
     }
 
-    // Update is called once per frame
-    void  Update()
+
+    void Update()
     {
-        InputUpdateJump();
-        if(_prevYPosition > transform.position.y)
+        UpdateJump();
+    }
+
+
+    private void UpdateJump()
+    {
+
+        if (_jumpAction.action.triggered && _lastJump > 0) //nhận phím nhảy và thực hiện điều kiện số lần nhảy ko < 0 
         {
-            // rot xuong -> bat ground check
-            check.enabled = true;
+            _rb.velocity = new Vector2(_rb.velocity.x, _jumpForce);
+            _lastJump--;
+            _isJumping = true;
+
         }
-        else
+
+        CheckGround();
+    }
+
+
+    public void CheckGround() // kiểm tra bằng thẻ layer nếu đúng thì true
+    {
+        _isGround = Physics2D.OverlapCircle(_groundCheckTransform.position, _radius, _layerMask);
+        if (_isGround && !_rb.IsTouchingLayers(_layerMask) && _isJumping == true)
         {
-            // nhay len -> tat ground check
-            check.enabled = false;
+            _lastJump = _maxJumpCount;
+            _isJumping = false;
         }
     }
-    public void OnHitGround() => _lastJump = _maxJumpCount;
-    private void InputUpdateJump()
+
+    private void OnTriggerExit2D(Collider2D collision)
     {
-
-        if (_jumpAction.action.triggered && _lastJump > 0)
+        if (collision.gameObject.CompareTag("Ground"))
         {
-
-            _rb.velocity = new Vector2(0f,_jumpForce); // Use AddForce and Vector2.up
-            _lastJump --;
+            _isJumping = true;
 
         }
+    }
+    private void OnDrawGizmos()// vẽ hình
+    {
+        Gizmos.color = _isGround ? Color.green : Color.red;
+        Gizmos.DrawSphere(_groundCheckTransform.position, _radius);
 
     }
 }
