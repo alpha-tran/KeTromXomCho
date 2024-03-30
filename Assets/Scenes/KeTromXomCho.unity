@@ -697,7 +697,7 @@ Transform:
   m_GameObject: {fileID: 952250192}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.15, y: -1.74, z: 0}
+  m_LocalPosition: {x: 2.02, y: -1.79, z: 0}
   m_LocalScale: {x: 0.44, y: 0.44, z: 0.44}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -779,7 +779,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d3d646ac48463541912480cdcdd7b80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 0}
 --- !u!1 &965650346
 GameObject:
   m_ObjectHideFlags: 0
@@ -1407,7 +1406,7 @@ GameObject:
   - component: {fileID: 2059544563}
   m_Layer: 8
   m_Name: canhsat
-  m_TagString: PlusPoints
+  m_TagString: CanhSat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
