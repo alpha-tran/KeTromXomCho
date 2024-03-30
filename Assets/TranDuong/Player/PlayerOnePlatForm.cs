@@ -8,13 +8,11 @@ public class PlayerOnePlatForm : MonoBehaviour
 
     private GameObject _currentOneWayPlatfrom;
     [SerializeField] private CapsuleCollider2D _playerCollider;
-    // Start is called before the first frame update
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.S) ) {

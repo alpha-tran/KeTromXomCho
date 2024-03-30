@@ -26,13 +26,11 @@ public class PlayerJump : MonoBehaviour
 
     private Rigidbody2D _rb;
     public bool _isGround { get; set; }
-    public bool _isJumping { get; set; }
 
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
         _lastJump = _maxJumpCount;
-        _isJumping = false;
     }
 
 
@@ -45,11 +43,10 @@ public class PlayerJump : MonoBehaviour
     private void UpdateJump()
     {
 
-        if (_jumpAction.action.triggered && _lastJump > 0) //nhận phím nhảy và thực hiện điều kiện số lần nhảy ko < 0 
+        if (_jumpAction.action.triggered && _lastJump > 0 )  //nhận phím nhảy và thực hiện điều kiện số lần nhảy ko < 0 
         {
             _rb.velocity = new Vector2(_rb.velocity.x, _jumpForce);
             _lastJump--;
-            _isJumping = true;
 
         }
 
@@ -60,22 +57,14 @@ public class PlayerJump : MonoBehaviour
     public void CheckGround() // kiểm tra bằng thẻ layer nếu đúng thì true
     {
         _isGround = Physics2D.OverlapCircle(_groundCheckTransform.position, _radius, _layerMask);
-        if (_isGround && !_rb.IsTouchingLayers(_layerMask) && _isJumping == true)
+        if (_isGround && Mathf.Abs(_rb.velocity.y) < 0.01f)
         {
             _lastJump = _maxJumpCount;
-            _isJumping = false;
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            _isJumping = true;
 
-        }
-    }
-    private void OnDrawGizmos()// vẽ hình
+    private void OnDrawGizmosSelected()// vẽ hình
     {
         Gizmos.color = _isGround ? Color.green : Color.red;
         Gizmos.DrawSphere(_groundCheckTransform.position, _radius);
