@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -7,6 +8,10 @@ using UnityEngine.InputSystem;
 
 public class PlayerJump : MonoBehaviour
 {
+    [Header("Movement")]
+    [SerializeField] private float _defaultX = -7;
+    [SerializeField] private float _movementSpeed;
+
     [Header("Input")]
     [SerializeField] private InputActionReference _jumpAction;
     [Space(10)]
@@ -37,8 +42,19 @@ public class PlayerJump : MonoBehaviour
     void Update()
     {
         UpdateJump();
+        UpdatePosition();
     }
 
+    private void UpdatePosition()
+    {
+        if(Mathf.Abs(transform.position.x - _defaultX) < Mathf.Epsilon)
+        {
+            transform.position = new Vector3(_defaultX, transform.position.y, transform.position.z);
+            return;
+        }
+        float newX = Mathf.Lerp(transform.position.x, -7f, _movementSpeed * Time.deltaTime);
+        transform.position = new Vector3(newX, transform.position.y, transform.position.z);
+    }
 
     private void UpdateJump()
     {
