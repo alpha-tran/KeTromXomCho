@@ -54,9 +54,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4518864415093998783}
     m_Modifications:
+    - target: {fileID: 2257342633713827761, guid: 647eedb4207ec7f4d9aa6a24cf37ec20, type: 3}
+      propertyPath: m_TagString
+      value: OneWayPlatform
+      objectReference: {fileID: 0}
     - target: {fileID: 2281558234709864169, guid: 647eedb4207ec7f4d9aa6a24cf37ec20, type: 3}
       propertyPath: m_Name
       value: house 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3211159595917603836, guid: 647eedb4207ec7f4d9aa6a24cf37ec20, type: 3}
+      propertyPath: m_TagString
+      value: OneWayPlatform
+      objectReference: {fileID: 0}
+    - target: {fileID: 4157915979513494757, guid: 647eedb4207ec7f4d9aa6a24cf37ec20, type: 3}
+      propertyPath: m_TagString
+      value: OneWayPlatform
       objectReference: {fileID: 0}
     - target: {fileID: 5378302504178612763, guid: 647eedb4207ec7f4d9aa6a24cf37ec20, type: 3}
       propertyPath: m_LocalScale.x
@@ -363,6 +375,10 @@ PrefabInstance:
     - target: {fileID: 2281558234709864169, guid: f0f38bcbc3e5ec44489314fdec6fa0bc, type: 3}
       propertyPath: m_Name
       value: house 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3211159595917603836, guid: f0f38bcbc3e5ec44489314fdec6fa0bc, type: 3}
+      propertyPath: m_TagString
+      value: OneWayPlatform
       objectReference: {fileID: 0}
     - target: {fileID: 5378302504178612763, guid: f0f38bcbc3e5ec44489314fdec6fa0bc, type: 3}
       propertyPath: m_LocalScale.x

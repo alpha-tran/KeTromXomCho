@@ -58,6 +58,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: house 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3211159595917603836, guid: 94a1381c9af76e945bffabb20e4f22f1, type: 3}
+      propertyPath: m_TagString
+      value: OneWayPlatform
+      objectReference: {fileID: 0}
     - target: {fileID: 5378302504178612763, guid: 94a1381c9af76e945bffabb20e4f22f1, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.04
@@ -211,6 +215,10 @@ PrefabInstance:
     - target: {fileID: 2281558234709864169, guid: 504bc9f153062534e90f0e8b1eddd441, type: 3}
       propertyPath: m_Name
       value: house 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3211159595917603836, guid: 504bc9f153062534e90f0e8b1eddd441, type: 3}
+      propertyPath: m_TagString
+      value: OneWayPlatform
       objectReference: {fileID: 0}
     - target: {fileID: 5378302504178612763, guid: 504bc9f153062534e90f0e8b1eddd441, type: 3}
       propertyPath: m_LocalScale.x

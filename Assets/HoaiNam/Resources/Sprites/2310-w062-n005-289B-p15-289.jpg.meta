@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 065fa83d9d3314346b680b486504c417
+guid: 26123e68f92384140b5ca840318643c6
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -121,133 +121,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: Background copy_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 2123
-        width: 2150
-        height: 264
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3953ca99b1ff19c429926c2694ca1958
-      internalID: -1615054881
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Background copy_1
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 1705
-        width: 2150
-        height: 317
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: dc0474c90a8afee46a4ec2b5b8e5c4a5
-      internalID: 389386108
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Background copy_2
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 1298
-        width: 2150
-        height: 261
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b28dea02460c994478efdca0a13612c7
-      internalID: 552876722
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Background copy_3
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 869
-        width: 2150
-        height: 267
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c211e5cc73d6c1b47a5c26ff166aa3f8
-      internalID: 358427369
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Background copy_4
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 445
-        width: 2150
-        height: 244
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b10f8e2b6b0e379479b213d3ef7eeee6
-      internalID: -1678981724
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Background copy_5
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 2150
-        height: 264
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d9f75d2c277b21940b2e0af9c1e70fca
-      internalID: -1088128465
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
@@ -258,13 +132,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      Background copy_0: -1615054881
-      Background copy_1: 389386108
-      Background copy_2: 552876722
-      Background copy_3: 358427369
-      Background copy_4: -1678981724
-      Background copy_5: -1088128465
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

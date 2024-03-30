@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerOnePlatForm : MonoBehaviour
@@ -10,15 +9,18 @@ public class PlayerOnePlatForm : MonoBehaviour
     [SerializeField] private CapsuleCollider2D _playerCollider;
     void Start()
     {
-        
+
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.S) ) {
-
+        print("update");
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            print("press s");
             if (_currentOneWayPlatfrom != null)
             {
+                print("StartCoroutine");
                 StartCoroutine(DisableCollision());
             }
         }
@@ -26,7 +28,7 @@ public class PlayerOnePlatForm : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.CompareTag("OneWayPlatform"))
+        if (collision.gameObject.CompareTag("OneWayPlatform"))
         {
             _currentOneWayPlatfrom = collision.gameObject;
         }
@@ -43,11 +45,12 @@ public class PlayerOnePlatForm : MonoBehaviour
 
     private IEnumerator DisableCollision()
     {
+        print("DisableCollision");
         BoxCollider2D _platformCollider = _currentOneWayPlatfrom.GetComponent<BoxCollider2D>();
 
         Physics2D.IgnoreCollision(_playerCollider, _platformCollider);
         yield return new WaitForSeconds(1f);
-        Physics2D.IgnoreCollision (_playerCollider, _platformCollider,false);
+        Physics2D.IgnoreCollision(_playerCollider, _platformCollider, false);
 
 
     }
