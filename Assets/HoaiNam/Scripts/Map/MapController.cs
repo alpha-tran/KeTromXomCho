@@ -56,7 +56,6 @@ namespace Game.Map
                 var tmp = _mapBlocks[0];
                 _mapBlocks.RemoveAt(0);
                 _mapBlocks.Add(tmp);
-                print(tmp.name + " change block ");
                 DisplayNewBlock(tmp);
             }
         }
