@@ -86,7 +86,7 @@ namespace Tools
 
         //A transform to store inactive objects
         private static Transform inactiveObjects;
-        private static Transform InactiveObjects
+        public static Transform InactiveObjects
         {
             get
             {

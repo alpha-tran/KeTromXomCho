@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Tools;
 using UnityEngine;
 
 namespace Game.Map
@@ -17,7 +18,7 @@ namespace Game.Map
 
                 if(_currentBlock != null)
                 {
-                    _currentBlock.transform.SetParent(null);
+                    _currentBlock.transform.SetParent(ResourceManager.InactiveObjects);
                     _currentBlock.SetActive(false);
                 }
                 _currentBlock = blockObj;
