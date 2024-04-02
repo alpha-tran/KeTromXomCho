@@ -57,6 +57,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: house 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3211159595917603836, guid: 504bc9f153062534e90f0e8b1eddd441, type: 3}
+      propertyPath: m_TagString
+      value: OneWayPlatform
+      objectReference: {fileID: 0}
     - target: {fileID: 5378302504178612763, guid: 504bc9f153062534e90f0e8b1eddd441, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.05
