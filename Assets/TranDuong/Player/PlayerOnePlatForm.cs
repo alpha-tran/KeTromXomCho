@@ -16,7 +16,7 @@ public class PlayerOnePlatForm : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.S) ) {
-
+            print("s");
             if (_currentOneWayPlatfrom != null)
             {
                 StartCoroutine(DisableCollision());
