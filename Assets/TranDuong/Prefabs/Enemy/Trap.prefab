@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4164101557195573370}
   - component: {fileID: 7636693215727604298}
   m_Layer: 8
-  m_Name: Square (1)
+  m_Name: Trap
   m_TagString: MinusPoints
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

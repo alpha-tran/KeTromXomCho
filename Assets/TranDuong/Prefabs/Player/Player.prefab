@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6972493253358997329}
   - component: {fileID: 4847295667628389771}
   - component: {fileID: 4382977472783419846}
+  - component: {fileID: 8668187326337983108}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -78,7 +79,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 100
   m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -217,6 +218,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerCollider: {fileID: 6669825445091061000}
+  _isCollider: 0
+  _speedDown: 20
+--- !u!114 &8668187326337983108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2605811098462354668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d3d646ac48463541912480cdcdd7b80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8108871694956394415
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,9 +12,11 @@ public class PlayerJump : MonoBehaviour
     [SerializeField] private float _defaultX = -7;
     [SerializeField] private float _movementSpeed;
 
+
     [Header("Input")]
     [SerializeField] private InputActionReference _jumpAction;
     [Space(10)]
+
 
     [Header("Jumps")]
     [SerializeField] private float _jumpForce;
@@ -22,12 +24,12 @@ public class PlayerJump : MonoBehaviour
     private float _lastJump;
     [Space(10)]
 
+
     [Header("CheckGround")]
     [SerializeField] private LayerMask _layerMask;
     [SerializeField] private float _radius;
     [SerializeField] private Transform _groundCheckTransform;
 
-    
 
     private Rigidbody2D _rb;
     public bool _isGround { get; set; }
@@ -43,9 +45,11 @@ public class PlayerJump : MonoBehaviour
     {
         UpdateJump();
         UpdatePosition();
+
+       
     }
 
-    private void UpdatePosition()
+    private void UpdatePosition()// update lại vị trí của player khi player bị collider đẩy đi
     {
         if(Mathf.Abs(transform.position.x - _defaultX) < Mathf.Epsilon)
         {
@@ -73,8 +77,8 @@ public class PlayerJump : MonoBehaviour
     public void CheckGround() // kiểm tra bằng thẻ layer nếu đúng thì true
     {
         _isGround = Physics2D.OverlapCircle(_groundCheckTransform.position, _radius, _layerMask);
-        if (_isGround && Mathf.Abs(_rb.velocity.y) < 0.01f)
-        {
+        if (_isGround && Mathf.Abs(_rb.velocity.y) < 0.01f)// fix lỗi nhảy vô hạn
+		{
             _lastJump = _maxJumpCount;
         }
     }

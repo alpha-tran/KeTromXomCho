@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5162282339326610548}
   - component: {fileID: 2069177279156741782}
   m_Layer: 8
-  m_Name: canhsat
+  m_Name: Enemy
   m_TagString: CanhSat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

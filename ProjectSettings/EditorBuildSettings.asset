@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/HoaiNam/Scenes/MapTest.unity
-    guid: 65b2c3b57918b214594df70245e95829
+    path: Assets/HoaiNam/Scenes/MainMenu.unity
+    guid: 75eb0dc298eb2dd478b505c812733774
+  - enabled: 1
+    path: Assets/HoaiNam/Scenes/Gameplay.unity
+    guid: c072b799e27657e49ab2481a7a6a5c22
   m_configObjects: {}
