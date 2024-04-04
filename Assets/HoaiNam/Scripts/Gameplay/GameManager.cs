@@ -10,11 +10,15 @@ namespace Game.Gameplay
     {
         private StateMachine<GameManager> _stateMachine = new StateMachine<GameManager>();
         private GameplayState _gameplayState;
+        private MainMenuState _mainMenuState;
+
 
         private void Start()
         {
             _gameplayState = new GameplayState(this);
-            _stateMachine.Initialize(_gameplayState);
+            _mainMenuState = new MainMenuState(this);
+
+            _stateMachine.Initialize(_mainMenuState);
         }
         private void Update()
         {
@@ -25,6 +29,25 @@ namespace Game.Gameplay
         private void FixedUpdate()
         {
             _stateMachine.CurrentState.PhysicsUpdate();
+        }
+
+
+        public void ChangeState(Enums.StateName stateName)
+        {
+            switch (stateName)
+            {
+                case Enums.StateName.MainMenu:
+                    {
+                        _stateMachine.ChangeState(_mainMenuState);
+                        return;
+                    }
+                case Enums.StateName.Gameplay:
+                    {
+                        _stateMachine.ChangeState(_gameplayState);
+                        return;
+                    }
+                default: return;
+            }
         }
     }
 }

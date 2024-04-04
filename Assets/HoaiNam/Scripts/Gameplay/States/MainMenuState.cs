@@ -3,21 +3,21 @@ using System.Collections;
 using System.Collections.Generic;
 using Tools;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 
 namespace Game.Gameplay
 {
-    public class GameplayState : State<GameManager>
+    public class MainMenuState : State<GameManager>
     {
-        public GameplayState(GameManager context) : base(context)
+        public MainMenuState(GameManager context) : base(context)
         {
         }
 
         public override void Enter()
         {
-            UIManager.Instance?.HideAllScreens();
-            SceneManager.LoadScene(1, LoadSceneMode.Additive);
+            UIManager.Instance?.ShowScreen<MainMenuScreen>(forceShowData: true);
+
+            _context.Register(Enums.EventID.StartGameOnClick, StartGameOnClick);
         }
 
         public override void Exit()
@@ -39,6 +39,11 @@ namespace Game.Gameplay
         {
             base.PhysicsUpdate();
         }
-    }
 
+        private void StartGameOnClick(object data)
+        {
+            // start game
+            _context.ChangeState(Enums.StateName.Gameplay);
+        }
+    }
 }

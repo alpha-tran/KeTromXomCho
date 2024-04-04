@@ -15,6 +15,13 @@ public static class Strings
 
 public static class Enums
 {
+    public enum StateName
+    {
+        MainMenu,
+        Gameplay
+    }
+
+
     public enum UIType
     {
         Unknown,
@@ -22,5 +29,11 @@ public static class Enums
         Popup,
         Overlap,
         Notify,
+    }
+
+
+    public enum EventID
+    {
+        StartGameOnClick
     }
 }

@@ -3,7 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UIManager : Singleton<UIManager>
+
+namespace Game.UI
+{
+    public class UIManager : Singleton<UIManager>
 {
     public GameObject cScreen, cPopup, cNotify, cOverlap;
 
@@ -45,7 +48,7 @@ public class UIManager : Singleton<UIManager>
         GameObject pfScreen = GetUIPrefab(Enums.UIType.Screen, nameScreen);
         if (pfScreen == null || !pfScreen.GetComponent<BaseScreen>())
         {
-            throw new MissingReferenceException("Can not found" + nameScreen + "screen. !!!");
+            throw new MissingReferenceException("Can not find " + nameScreen + " screen. !!!");
         }
         GameObject ob = Instantiate(pfScreen) as GameObject;
         ob.transform.SetParent(this.cScreen.transform);
@@ -572,4 +575,5 @@ public class UIManager : Singleton<UIManager>
         return result;
     }
 
+}
 }
