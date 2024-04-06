@@ -8,6 +8,7 @@ TagManager:
   - PlusPoints
   - MinusPoints
   - CanhSat
+  - Floor
   layers:
   - Default
   - TransparentFX

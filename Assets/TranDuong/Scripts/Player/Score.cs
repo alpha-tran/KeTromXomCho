@@ -32,5 +32,6 @@ public class Score : MonoBehaviour
 			print("Tru diem");
 		}
 	}
+
 }
 

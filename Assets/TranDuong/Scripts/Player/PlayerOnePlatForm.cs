@@ -1,17 +1,20 @@
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 
 public class PlayerOnePlatForm : MonoBehaviour
 {
 
-
-    private GameObject _currentOneWayPlatfrom;
+	[Header("Player Down")]
+	private GameObject _currentOneWayPlatfrom;
 	[SerializeField] private CapsuleCollider2D _playerCollider;
     private Rigidbody2D _rb;
 
-    public bool _isCollider = false;
 
+    [Header("Screen shaking")]
     [SerializeField] private float _speedDown;
+    [SerializeField] private CameraShake _cameraShake;
+
+    private bool _ischeckShake = false;
 
     void Start()
     {
@@ -27,22 +30,31 @@ public class PlayerOnePlatForm : MonoBehaviour
 			if (_currentOneWayPlatfrom != null)
             {               
 				StartCoroutine(DisableCollision());
+
 			}
-           
-        }
+
+            _ischeckShake = true;
+
+		}
 		
+
 	}
- 
 
-
-
-    private void OnCollisionEnter2D(Collision2D collision)
+	private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("OneWayPlatform"))
         {
             _currentOneWayPlatfrom = collision.gameObject;
         }
-    }
+
+
+		if (collision.gameObject.CompareTag("Floor"))
+		{
+			StartCoroutine(_cameraShake.Shake(Camera.main, 0.2f, _speedDown * 0.01f));
+			_ischeckShake = false;
+		}
+
+	}
 
     private void OnCollisionExit2D(Collision2D collision)
     {
@@ -58,14 +70,12 @@ public class PlayerOnePlatForm : MonoBehaviour
 		
         BoxCollider2D _platformCollider = _currentOneWayPlatfrom.GetComponent<BoxCollider2D>();
 
-
         Physics2D.IgnoreCollision(_playerCollider, _platformCollider);
 
         yield return new WaitForSeconds(1f);
 
         Physics2D.IgnoreCollision(_playerCollider, _platformCollider, false);
 
-		
 
 	}
 
