@@ -14,7 +14,10 @@ public class PlayerOnePlatForm : MonoBehaviour
     [SerializeField] private float _speedDown;
     [SerializeField] private CameraShake _cameraShake;
 
-    private bool _ischeckShake = false;
+	[SerializeField] private GameObject _smokeFx;
+
+
+	private bool _ischeckShake = false;
 
     void Start()
     {
@@ -50,7 +53,11 @@ public class PlayerOnePlatForm : MonoBehaviour
 
 		if (collision.gameObject.CompareTag("Floor"))
 		{
-			StartCoroutine(_cameraShake.Shake(Camera.main, 0.2f, _speedDown * 0.01f));
+			StartCoroutine(_cameraShake.Shake(Camera.main, 0.2f, _speedDown * 0.005f));
+
+            // smoke
+            _smokeFx.SetActive(true);
+
 			_ischeckShake = false;
 		}
 
