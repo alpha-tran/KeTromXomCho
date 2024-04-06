@@ -79,7 +79,9 @@ namespace Game.Map
             // simple implementation
             int randomIndex = UnityEngine.Random.Range(0, 6);
             var blockPool = ResourceManager.Instance.GetPool(Strings.BlockStrings.BLOCKS[randomIndex]);
-            block.DisplayMapBlock(ResourceManager.Instance.GetPool(blockPool.Name).Get(parent: block.transform));
+            var pool = ResourceManager.Instance.GetPool(blockPool.Name);
+            print(pool);
+            block.DisplayMapBlock(pool.Get(parent: block.transform));
 
         }
     }

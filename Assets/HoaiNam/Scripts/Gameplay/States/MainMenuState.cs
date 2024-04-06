@@ -23,6 +23,7 @@ namespace Game.Gameplay
         public override void Exit()
         {
             base.Exit();
+            _context.Unregister(Enums.EventID.StartGameOnClick, StartGameOnClick);
         }
 
         public override void HandleInput()

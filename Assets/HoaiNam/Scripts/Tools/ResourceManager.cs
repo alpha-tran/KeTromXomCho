@@ -91,7 +91,10 @@ namespace Tools
             get
             {
                 if (!inactiveObjects)
+                {
                     inactiveObjects = new GameObject("Pool").transform;
+                    inactiveObjects.SetParent(Instance.transform);
+                }
 
                 return inactiveObjects;
             }

@@ -34,6 +34,13 @@ public static class Enums
 
     public enum EventID
     {
-        StartGameOnClick
+        // ui
+        StartGameOnClick,
+
+
+
+        // gameplay
+        PlayerGainMoney,
+        BackToMainMenu
     }
 }
