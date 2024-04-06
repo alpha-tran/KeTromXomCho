@@ -54,10 +54,7 @@ public class PlayerOnePlatForm : MonoBehaviour
 		if (collision.gameObject.CompareTag("Floor") && _ischeckShake)
 		{
 			StartCoroutine(_cameraShake.Shake(Camera.main, 0.2f, _speedDown * 0.005f));
-
-            // smoke
             _smokeFx.SetActive(true);   
-
 			_ischeckShake = false;
 		}
 

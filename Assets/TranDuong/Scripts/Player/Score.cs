@@ -6,7 +6,6 @@ public class Score : MonoBehaviour
 {
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
-
 		if (collision.gameObject.CompareTag("CanhSat"))
 		{
 			if (collision.gameObject.transform.position.x < transform.position.x)
