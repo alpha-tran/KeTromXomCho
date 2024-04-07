@@ -13,7 +13,8 @@ public class PlayerOnePlatForm : MonoBehaviour
 
 	[Header("VFX")]
 	[SerializeField] private CameraShake _cameraShake;
-	[SerializeField] private GameObject _smokeFx;
+	[SerializeField] private GameObject _smokeFxDown;
+	[SerializeField] private GameObject _smokeFxJump;
 
 
 	private bool _ischeckShake = false;
@@ -50,13 +51,14 @@ public class PlayerOnePlatForm : MonoBehaviour
 	{
 		if (collision.gameObject.CompareTag("OneWayPlatform"))
 		{
+			VfxSmokeDown();
 			_currentOneWayPlatfrom = collision.gameObject;
 		}
 
 
 		if (collision.gameObject.CompareTag("Floor"))
 		{
-			VfxSmoke();
+			VfxSmokeDown();
 
 			if (_ischeckShake)
 			{
@@ -79,7 +81,8 @@ public class PlayerOnePlatForm : MonoBehaviour
 	}
 
 
-	public void VfxSmoke() => _smokeFx.SetActive(true);
+	public void VfxSmokeDown() => _smokeFxDown.SetActive(true);
+	public void VfxSmokeJump() => _smokeFxJump.SetActive(true);
 
 
 	public void VfxCameraShake() => StartCoroutine(_cameraShake.Shake(Camera.main, 0.2f, _speedDown * 0.005f));

@@ -9,6 +9,7 @@ TagManager:
   - MinusPoints
   - CanhSat
   - Floor
+  - ScorePoint
   layers:
   - Default
   - TransparentFX

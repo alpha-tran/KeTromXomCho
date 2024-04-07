@@ -72,7 +72,7 @@ public class PlayerJump : MonoBehaviour
             _lastJump--;
             if (_isGround)
             {
-				_onePlatForm.VfxSmoke();
+                _onePlatForm.VfxSmokeJump();
 			}
 		}
         CheckGround();
