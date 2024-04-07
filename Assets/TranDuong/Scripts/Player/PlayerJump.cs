@@ -30,6 +30,9 @@ public class PlayerJump : MonoBehaviour
     [SerializeField] private float _radius;
     [SerializeField] private Transform _groundCheckTransform;
 
+    [Header("Vfx")]
+    [SerializeField] private PlayerOnePlatForm _onePlatForm;
+
 
     private Rigidbody2D _rb;
     public bool _isGround { get; set; }
@@ -67,9 +70,11 @@ public class PlayerJump : MonoBehaviour
         {
             _rb.velocity = new Vector2(_rb.velocity.x, _jumpForce);
             _lastJump--;
-
-        }
-
+            if (_isGround)
+            {
+				_onePlatForm.VfxSmoke();
+			}
+		}
         CheckGround();
     }
 

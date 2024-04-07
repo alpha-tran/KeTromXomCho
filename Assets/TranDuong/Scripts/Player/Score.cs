@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Score : MonoBehaviour
 {
+	[SerializeField] private PlayerJump _playerJumps;
+	[SerializeField] private PlayerOnePlatForm _playerOnePlatForm;
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
 		if (collision.gameObject.CompareTag("CanhSat"))
@@ -22,12 +24,14 @@ public class Score : MonoBehaviour
 
 		if (collision.gameObject.CompareTag("PlusPoints"))
 		{
+			
 			print("Cong diem");
 		}
 
 
 		if (collision.gameObject.CompareTag("MinusPoints"))
 		{
+
 			print("Tru diem");
 		}
 	}

@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 7394757422601866641}
   - component: {fileID: 6669825445091061000}
   - component: {fileID: 7900577423550892014}
-  - component: {fileID: 6972493253358997329}
   - component: {fileID: 4847295667628389771}
+  - component: {fileID: 6972493253358997329}
   - component: {fileID: 4382977472783419846}
   - component: {fileID: 8668187326337983108}
   - component: {fileID: 6158092928497229938}
@@ -155,28 +155,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &6972493253358997329
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2605811098462354668}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38550129a35b856428a35dd088ba00a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _defaultX: -7
-  _movementSpeed: 7.79
-  _jumpAction: {fileID: 828880044356445533, guid: 209d6275d7268424d828e2c088a05bce, type: 3}
-  _jumpForce: 20
-  _maxJumpCount: 2
-  _layerMask:
-    serializedVersion: 2
-    m_Bits: 64
-  _radius: 0.05
-  _groundCheckTransform: {fileID: 3231954098091203780}
 --- !u!114 &4847295667628389771
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -207,6 +185,28 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &6972493253358997329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2605811098462354668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38550129a35b856428a35dd088ba00a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _defaultX: -7
+  _movementSpeed: 7.79
+  _jumpAction: {fileID: 828880044356445533, guid: 209d6275d7268424d828e2c088a05bce, type: 3}
+  _jumpForce: 20
+  _maxJumpCount: 2
+  _layerMask:
+    serializedVersion: 2
+    m_Bits: 64
+  _radius: 0.05
+  _groundCheckTransform: {fileID: 3231954098091203780}
 --- !u!114 &4382977472783419846
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -235,6 +235,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d3d646ac48463541912480cdcdd7b80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playerJumps: {fileID: 6972493253358997329}
+  _playerOnePlatForm: {fileID: 4382977472783419846}
 --- !u!114 &6158092928497229938
 MonoBehaviour:
   m_ObjectHideFlags: 0
