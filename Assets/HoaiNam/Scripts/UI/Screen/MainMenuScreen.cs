@@ -30,7 +30,7 @@ namespace Game.UI
 
         private void StartBtnOnClick()
         {
-            this.Broadcast(Enums.EventID.StartGameOnClick);
+            this.Broadcast(Enums.EventID.OnStartGame);
         }
 
     

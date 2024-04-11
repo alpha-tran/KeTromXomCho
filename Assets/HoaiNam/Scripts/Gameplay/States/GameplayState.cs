@@ -18,7 +18,7 @@ namespace Game.Gameplay
         public override void Enter()
         {
             UIManager.Instance?.HideAllScreens();
-            SceneManager.LoadScene(1, LoadSceneMode.Additive);
+            SceneManager.LoadSceneAsync(1, LoadSceneMode.Additive);
 
             UIManager.Instance?.ShowOverlap<GameplayOverlap>(forceShowData: true);
 
@@ -26,13 +26,12 @@ namespace Game.Gameplay
 
             // register
             _context.Register(Enums.EventID.BackToMainMenu, GoToMainMenu);
+            _context.Register(Enums.EventID.OnEndGame, OnEndGame);
+            _context.Register(Enums.EventID.PlayAgain, PlayAgain);
+
+
         }
 
-        private void GoToMainMenu(object obj)
-        {
-            _context.ChangeState(Enums.StateName.MainMenu);
-            SceneManager.UnloadSceneAsync(1,UnloadSceneOptions.None);
-        }
 
         public override void Exit()
         {
@@ -41,6 +40,11 @@ namespace Game.Gameplay
             {
                 pool.DestroyAll();
             }
+            _context.Unregister(Enums.EventID.BackToMainMenu, GoToMainMenu);
+            _context.Unregister(Enums.EventID.OnEndGame, OnEndGame);
+            _context.Unregister(Enums.EventID.PlayAgain, PlayAgain);
+            SceneManager.UnloadSceneAsync(1);
+
         }
 
         public override void HandleInput()
@@ -57,6 +61,24 @@ namespace Game.Gameplay
         {
             base.PhysicsUpdate();
         }
+
+        private void GoToMainMenu(object obj)
+        {
+            _context.ChangeState(Enums.StateName.MainMenu);
+            SceneManager.UnloadSceneAsync(1, UnloadSceneOptions.None);
+        }
+
+        private void OnEndGame(object obj)
+        {
+            UIManager.Instance?.ShowScreen<ResultScreen>(data: obj, forceShowData: true);
+        }
+
+        private void PlayAgain(object obj)
+        {
+            _context.ChangeState(Enums.StateName.Gameplay);
+        }
+
+
     }
 
 }

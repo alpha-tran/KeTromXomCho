@@ -19,8 +19,9 @@ public class PlayerOnePlatForm : MonoBehaviour
 
 	private bool _ischeckShake = false;
 
+    public float SpeedDown { get => _speedDown; }
 
-	void Start()
+    void Start()
 	{
 		_rb = GetComponent<Rigidbody2D>();
 	}

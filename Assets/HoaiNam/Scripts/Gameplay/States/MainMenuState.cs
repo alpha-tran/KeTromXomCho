@@ -17,13 +17,13 @@ namespace Game.Gameplay
         {
             UIManager.Instance?.ShowScreen<MainMenuScreen>(forceShowData: true);
 
-            _context.Register(Enums.EventID.StartGameOnClick, StartGameOnClick);
+            _context.Register(Enums.EventID.OnStartGame, StartGameOnClick);
         }
 
         public override void Exit()
         {
             base.Exit();
-            _context.Unregister(Enums.EventID.StartGameOnClick, StartGameOnClick);
+            _context.Unregister(Enums.EventID.OnStartGame, StartGameOnClick);
         }
 
         public override void HandleInput()

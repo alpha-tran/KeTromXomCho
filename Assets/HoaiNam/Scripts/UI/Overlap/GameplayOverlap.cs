@@ -17,7 +17,7 @@ namespace Game.UI
         public override void Hide()
         {
             base.Hide();
-            this.Unregister(Enums.EventID.PlayerGainMoney, MoneyChange);
+            this.Unregister(Enums.EventID.OnMoneyChanged, MoneyChange);
 
             _settingBtn.onClick.RemoveListener(SettingBtnOnClick);
         }
@@ -30,10 +30,10 @@ namespace Game.UI
         public override void Show(object data)
         {
             base.Show(data);
-            this.Register(Enums.EventID.PlayerGainMoney, MoneyChange);
+            this.Register(Enums.EventID.OnMoneyChanged, MoneyChange);
 
             _settingBtn.onClick.AddListener(SettingBtnOnClick);
-
+            _moneyTxt.text = "0 k";
         }
 
         private void SettingBtnOnClick()
@@ -44,7 +44,8 @@ namespace Game.UI
         private void MoneyChange(object obj)
         {
             int money = (int)obj;
-            _moneyTxt.text = money.ToString();
+            if (money == 0) _moneyTxt.text = "0 k";
+            else _moneyTxt.text = money.ToString() + ".000 k";
         }
     }
 }
