@@ -15,8 +15,9 @@ namespace Game.Gameplay
 
         public override void Enter()
         {
+            UIManager.Instance?.HideAllOverlaps();
+            UIManager.Instance?.HideAllPopups();
             UIManager.Instance?.ShowScreen<MainMenuScreen>(forceShowData: true);
-
             _context.Register(Enums.EventID.OnStartGame, StartGameOnClick);
         }
 

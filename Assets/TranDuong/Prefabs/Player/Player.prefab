@@ -222,6 +222,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c505153a56152834c9bde4de0d8da918, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playerJump: {fileID: 6972493253358997329}
   _speedDown: 20
   _playerCollider: {fileID: 6669825445091061000}
   _cameraShake: {fileID: 6158092928497229938}
@@ -243,6 +244,7 @@ MonoBehaviour:
   _cameraShake: {fileID: 6158092928497229938}
   _playerOnePlatForm: {fileID: 4382977472783419846}
   _playerJump: {fileID: 6972493253358997329}
+  _currentScore: 0
 --- !u!114 &6158092928497229938
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using Tools;
 using UnityEngine;
-using static Unity.Burst.Intrinsics.X86.Avx;
 
 
 namespace Game.Map
@@ -40,10 +39,10 @@ namespace Game.Map
 
         private void InitMap()
         {
-            foreach (var block in _mapBlocks)
-            {
-                DisplayNewBlock(block);
-            }
+            //foreach (var block in _mapBlocks)
+            //{
+            //    DisplayNewBlock(block);
+            //}
         }
 
 
@@ -80,7 +79,6 @@ namespace Game.Map
             int randomIndex = UnityEngine.Random.Range(0, 6);
             var blockPool = ResourceManager.Instance.GetPool(Strings.BlockStrings.BLOCKS[randomIndex]);
             var pool = ResourceManager.Instance.GetPool(blockPool.Name);
-            print(pool);
             block.DisplayMapBlock(pool.Get(parent: block.transform));
 
         }

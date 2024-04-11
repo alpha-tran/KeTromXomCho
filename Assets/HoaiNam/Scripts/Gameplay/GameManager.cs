@@ -11,14 +11,15 @@ namespace Game.Gameplay
         private StateMachine<GameManager> _stateMachine = new StateMachine<GameManager>();
         private GameplayState _gameplayState;
         private MainMenuState _mainMenuState;
-
+        private InitializeState _initializeState;
 
         private void Start()
         {
             _gameplayState = new GameplayState(this);
             _mainMenuState = new MainMenuState(this);
+            _initializeState = new InitializeState(this);
 
-            _stateMachine.Initialize(_mainMenuState);
+            _stateMachine.Initialize(_initializeState);
         }
         private void Update()
         {

@@ -39,6 +39,7 @@ public static class Enums
         BackToMainMenu,
         PlayAgain,
         OnEndGame,
+        OnMoneyChanged,
 
 
 
@@ -46,6 +47,9 @@ public static class Enums
         PlayerGainMoney,
         PlayerDead,
         PlayerLoseMoney,
-        OnMoneyChanged,
+        PlayerHitTrap,
+        PlayerJump,
+        PlayerLand,
+        PlayerGetOffFloor
     }
 }

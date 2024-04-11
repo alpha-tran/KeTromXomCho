@@ -30,6 +30,7 @@ namespace Game.UI
 
         private void StartBtnOnClick()
         {
+            Debug.Log("broad cast");
             this.Broadcast(Enums.EventID.OnStartGame);
         }
 

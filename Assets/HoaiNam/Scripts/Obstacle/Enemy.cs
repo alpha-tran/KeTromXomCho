@@ -18,6 +18,8 @@ namespace Game.Gameplay
             else
             {
                 this.Broadcast(Enums.EventID.PlayerDead, this);
+                this.Broadcast(Enums.EventID.PlayerHitTrap, this);
+
             }
 
             // add somebehavior

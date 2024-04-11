@@ -35,7 +35,7 @@ public class PlayerJump : MonoBehaviour
 
 
     private Rigidbody2D _rb;
-    public bool _isGround { get; set; }
+    public bool IsGround { get; set; }
 
     void Start()
     {
@@ -68,9 +68,10 @@ public class PlayerJump : MonoBehaviour
 
         if (_jumpAction.action.triggered && _lastJump > 0 )  //nhận phím nhảy và thực hiện điều kiện số lần nhảy ko < 0 
         {
+            this.Broadcast(Enums.EventID.PlayerJump);
             _rb.velocity = new Vector2(_rb.velocity.x, _jumpForce);
             _lastJump--;
-            if (_isGround)
+            if (IsGround)
             {
                 _onePlatForm.VfxSmokeJump();
 			}
@@ -81,8 +82,8 @@ public class PlayerJump : MonoBehaviour
 
     public void CheckGround() // kiểm tra bằng thẻ layer nếu đúng thì true
     {
-        _isGround = Physics2D.OverlapCircle(_groundCheckTransform.position, _radius, _layerMask);
-        if (_isGround && Mathf.Abs(_rb.velocity.y) < 0.01f)// fix lỗi nhảy vô hạn
+        IsGround = Physics2D.OverlapCircle(_groundCheckTransform.position, _radius, _layerMask);
+        if (IsGround && Mathf.Abs(_rb.velocity.y) < 0.01f)// fix lỗi nhảy vô hạn
 		{
             _lastJump = _maxJumpCount;
         }
@@ -91,7 +92,7 @@ public class PlayerJump : MonoBehaviour
 
     private void OnDrawGizmosSelected()// vẽ hình
     {
-        Gizmos.color = _isGround ? Color.green : Color.red;
+        Gizmos.color = IsGround ? Color.green : Color.red;
         Gizmos.DrawSphere(_groundCheckTransform.position, _radius);
 
     }

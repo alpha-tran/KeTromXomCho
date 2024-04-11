@@ -5,7 +5,8 @@ public class PlayerOnePlatForm : MonoBehaviour
 {
 
 	[Header("Player Down")]
-	[SerializeField] private float _speedDown;
+    [SerializeField] private PlayerJump _playerJump;
+    [SerializeField] private float _speedDown;
 	private GameObject _currentOneWayPlatfrom;
 	[SerializeField] private CapsuleCollider2D _playerCollider;
 	private Rigidbody2D _rb;
@@ -31,13 +32,14 @@ public class PlayerOnePlatForm : MonoBehaviour
 	{
 		if (Input.GetKeyDown(KeyCode.S))
 		{
-
-
-			_rb.velocity = new Vector2(0f, -_speedDown);
+			if (_playerJump.enabled)
+			{
+				this.Broadcast(Enums.EventID.PlayerGetOffFloor);
+			}
+            _rb.velocity = new Vector2(0f, -_speedDown);
 			if (_currentOneWayPlatfrom != null)
 			{
 				StartCoroutine(DisableCollision());
-
 			}
 
 			_ischeckShake = true;

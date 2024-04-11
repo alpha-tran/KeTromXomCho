@@ -14,7 +14,7 @@ namespace Game.Gameplay
         public void DoInteract(object target)
         {
             this.Broadcast(Enums.EventID.PlayerLoseMoney, this);
-
+            this.Broadcast(Enums.EventID.PlayerHitTrap, this);
             // add some behavior
         }
     }

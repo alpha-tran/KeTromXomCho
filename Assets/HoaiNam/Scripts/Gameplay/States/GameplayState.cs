@@ -70,12 +70,21 @@ namespace Game.Gameplay
 
         private void OnEndGame(object obj)
         {
-            UIManager.Instance?.ShowScreen<ResultScreen>(data: obj, forceShowData: true);
+            _context.StartCoroutine(OnEndGameCoroutine(obj));
         }
 
         private void PlayAgain(object obj)
         {
+            _context.Broadcast(Enums.EventID.OnStartGame);
             _context.ChangeState(Enums.StateName.Gameplay);
+        }
+
+        private float _endGameDuration = 3f;
+        IEnumerator OnEndGameCoroutine(object obj)
+        {
+            yield return new WaitForSeconds(_endGameDuration);
+            UIManager.Instance?.HideAllOverlaps();
+            UIManager.Instance?.ShowScreen<ResultScreen>(data: obj, forceShowData: true);
         }
 
 
