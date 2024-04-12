@@ -82,10 +82,16 @@ public class PlayerJump : MonoBehaviour
 
     public void CheckGround() // kiểm tra bằng thẻ layer nếu đúng thì true
     {
+        bool prevCheck = IsGround;
         IsGround = Physics2D.OverlapCircle(_groundCheckTransform.position, _radius, _layerMask);
         if (IsGround && Mathf.Abs(_rb.velocity.y) < 0.01f)// fix lỗi nhảy vô hạn
 		{
             _lastJump = _maxJumpCount;
+        }
+
+        if(!prevCheck && IsGround)
+        {
+            this.Broadcast(Enums.EventID.PlayerHitGround);
         }
     }
 

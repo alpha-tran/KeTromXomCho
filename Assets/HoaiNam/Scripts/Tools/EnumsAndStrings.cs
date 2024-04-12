@@ -53,5 +53,6 @@ public static class Enums
         PlayerJump,
         PlayerLand,
         PlayerGetOffFloor,
+        PlayerHitGround,
     }
 }
