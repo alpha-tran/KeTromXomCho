@@ -9,7 +9,11 @@ namespace Game.Audio
     public class AudioManager : Singleton<AudioManager>
     {
         [SerializeField] AudioSource _music;
+        public float MusicVolume { get => _music.volume; }
+
         [SerializeField] AudioSource _sfx;
+        public float SfxVolume { get => _sfx.volume; }
+
         [SerializeField] float _volumeOffset;
 
         [Header("Music")]
@@ -34,21 +38,15 @@ namespace Game.Audio
 
         private void OnEnable()
         {
-            this.Register(Enums.EventID.PlayerGainMoney, PlaySFXGainMoney);
-            this.Register(Enums.EventID.PlayerHitTrap, PlaySFXHitTrap) ;
-            this.Register(Enums.EventID.PlayerDead, PlaySFXEndGame);
-            this.Register(Enums.EventID.PlayerJump, PlaySFXJump);
-            this.Register(Enums.EventID.PlayerLand, PlaySFXLand);
-            this.Register(Enums.EventID.PlayerGetOffFloor, PlaySFXGetOffFloor);
-
-
-            this.Register(Enums.EventID.OnEndGame, PlayEndGameMusic);
-            this.Register(Enums.EventID.BackToMainMenu, PlayMenuMusic);
-            this.Register(Enums.EventID.OnStartGame, PlayGameplayMusic);
+            RegisterEventIDs();
         }
 
         private void OnDisable()
         {
+            this.Unregister(Enums.EventID.MusicVolumeChanged, ChangeMusicVolume);
+            this.Unregister(Enums.EventID.SfxVolumeChanged, ChangeSfxVolume);
+
+
             this.Unregister(Enums.EventID.PlayerGainMoney, PlaySFXGainMoney);
             this.Unregister(Enums.EventID.PlayerHitTrap, PlaySFXHitTrap);
             this.Unregister(Enums.EventID.PlayerDead, PlaySFXEndGame);
@@ -73,7 +71,7 @@ namespace Game.Audio
             StartCoroutine(TurnDownMusicVolume());
             PlaySfx(_playerDead);
         }
-        
+
 
         private void PlayEndGameMusic(object data)
         {
@@ -100,7 +98,7 @@ namespace Game.Audio
 
         private void PlaySfx(AudioClip sfx)
         {
-            if(sfx != null)
+            if (sfx != null)
             {
                 float currentVolume = _sfx.volume;
                 _sfx.volume += Random.Range(-_volumeOffset, _volumeOffset);
@@ -114,10 +112,10 @@ namespace Game.Audio
         private IEnumerator TurnDownMusicVolume()
         {
             float currentVolume = _music.volume;
-            while(_music.volume > 0)
+            while (_music.volume > 0)
             {
                 _music.volume = Mathf.Lerp(_music.volume, 0, _turnDownMusicVolumeSpeed * Time.deltaTime);
-                if(_music.volume < 0.01)
+                if (_music.volume < 0.01)
                 {
                     _music.volume = 0;
                     _music.volume = currentVolume;
@@ -127,8 +125,24 @@ namespace Game.Audio
             }
         }
 
+        private void ChangeMusicVolume(object obj)
+        {
+            _music.volume = (float)obj;
+        }
+
+        private void ChangeSfxVolume(object obj)
+        {
+            _sfx.volume = (float)obj;
+        }
+
+
+
         public void RegisterEventIDs()
         {
+            this.Register(Enums.EventID.MusicVolumeChanged, ChangeMusicVolume);
+            this.Register(Enums.EventID.SfxVolumeChanged, ChangeSfxVolume);
+
+
             this.Register(Enums.EventID.PlayerGainMoney, PlaySFXGainMoney);
             this.Register(Enums.EventID.PlayerHitTrap, PlaySFXHitTrap);
             this.Register(Enums.EventID.PlayerDead, PlaySFXEndGame);

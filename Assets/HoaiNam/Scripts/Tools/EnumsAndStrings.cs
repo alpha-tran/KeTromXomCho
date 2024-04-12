@@ -40,6 +40,8 @@ public static class Enums
         PlayAgain,
         OnEndGame,
         OnMoneyChanged,
+        MusicVolumeChanged,
+        SfxVolumeChanged,
 
 
 
@@ -50,6 +52,6 @@ public static class Enums
         PlayerHitTrap,
         PlayerJump,
         PlayerLand,
-        PlayerGetOffFloor
+        PlayerGetOffFloor,
     }
 }

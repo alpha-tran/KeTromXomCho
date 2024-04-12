@@ -10,11 +10,16 @@ namespace Game.UI
     {
         [SerializeField] private Button _startGameBtn;
         [SerializeField] private Button _quitGameBtn;
+        [SerializeField] private Button _settingBtn;
+
+
 
         public override void Hide()
         {
             base.Hide();
             _startGameBtn.onClick.RemoveListener(StartBtnOnClick);
+            _settingBtn.onClick.RemoveListener(SettingBtnOnClick);
+
         }
 
         public override void Init()
@@ -26,6 +31,8 @@ namespace Game.UI
         {
             base.Show(data);
             _startGameBtn.onClick.AddListener(StartBtnOnClick);
+            _settingBtn.onClick.AddListener(SettingBtnOnClick);
+
         }
 
         private void StartBtnOnClick()
@@ -34,6 +41,9 @@ namespace Game.UI
             this.Broadcast(Enums.EventID.OnStartGame);
         }
 
-    
+        private void SettingBtnOnClick()
+        {
+            UIManager.Instance?.ShowPopup<SettingPopup>(forceShowData: true);
+        }
     }
 }
