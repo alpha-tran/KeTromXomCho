@@ -71,10 +71,9 @@ public class PlayerJump : MonoBehaviour
             this.Broadcast(Enums.EventID.PlayerJump);
             _rb.velocity = new Vector2(_rb.velocity.x, _jumpForce);
             _lastJump--;
-            if (IsGround)
-            {
+           
                 _onePlatForm.VfxSmokeJump();
-			}
+			
 		}
         CheckGround();
     }

@@ -17,7 +17,6 @@ public class PlayerOnePlatForm : MonoBehaviour
 	[SerializeField] private GameObject _smokeFxDown;
 	[SerializeField] private GameObject _smokeFxJump;
 
-
 	private bool _ischeckShake = false;
 
     public float SpeedDown { get => _speedDown; }
@@ -41,7 +40,7 @@ public class PlayerOnePlatForm : MonoBehaviour
 			{
 				StartCoroutine(DisableCollision());
 			}
-
+			
 			_ischeckShake = true;
 
 		}
@@ -54,19 +53,20 @@ public class PlayerOnePlatForm : MonoBehaviour
 	{
 		if (collision.gameObject.CompareTag("OneWayPlatform"))
 		{
-			VfxSmokeDown();
+			
 			_currentOneWayPlatfrom = collision.gameObject;
 		}
 
 
-		if (collision.gameObject.CompareTag("Floor"))
+		if (collision.gameObject.CompareTag("Ground"))
 		{
-			VfxSmokeDown();
 
+			
 			if (_ischeckShake)
 			{
 				_ischeckShake = false;
 				VfxCameraShake();
+				VfxSmokeDown();
 			}
 
 		}
